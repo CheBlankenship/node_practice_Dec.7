@@ -23,13 +23,13 @@ app.use(function myMiddleware(request, response, next){
   next();
 });
 
-app.get('/', function I_am_middleware(req, res){
+app.get('/', function I_am_middleware(req, res, next){
   res.send('Hello world!');
+}, function(req,res, next) {
+  console.log('Check ifs working');
+  next();
 });
 
-// app.get('/', function I_am_middleware(req, res){
-//   res.send('Hello world!');
-// });
 
 app.listen(3000, function(){
   console.log("Example app listening on part 3000");
